@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Dolce Vita - Medium Fidelity Prototype</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Home Screen -->
+        <div id="home-screen" class="screen">
+            <div class="header">
+                <h1>La Dolce Vita</h1>
+            </div>
+            
+            <div class="motto-card">
+                <h2 class="motto-title">"La vita è bella!"</h2>
+                <p class="motto-translation">Life is beautiful!</p>
+                <button class="favorite" id="favorite-motto">
+                    <i class="material-icons">favorite_border</i>
+                </button>
+            </div>
+            
+            <div class="recent-content">
+                <h2 class="section-title">Recent Podcasts</h2>
+                <div class="content-cards">
+                    <div class="content-card" onclick="showScreen('podcast-episode-screen')">
+                        <div class="content-thumbnail">
+                            <i class="material-icons">mic</i>
+                        </div>
+                        <div class="content-info">
+                            <h3 class="content-title">Italian Greetings</h3>
+                            <p class="content-meta">Episode 3 • 12 min</p>
+                        </div>
+                    </div>
+                    <div class="content-card" onclick="showScreen('podcast-episode-screen')">
+                        <div class="content-thumbnail">
+                            <i class="material-icons">mic</i>
+                        </div>
+                        <div class="content-info">
+                            <h3 class="content-title">Coffee Culture</h3>
+                            <p class="content-meta">Episode 2 • 15 min</p>
+                        </div>
+                    </div>
+                    <div class="content-card" onclick="showScreen('podcast-episode-screen')">
+                        <div class="content-thumbnail">
+                            <i class="material-icons">mic</i>
+                        </div>
+                        <div class="content-info">
+                            <h3 class="content-title">First Conversations</h3>
+                            <p class="content-meta">Episode 1 • 10 min</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="recent-content">
+                <h2 class="section-title">Recent Videos</h2>
+                <div class="content-cards">
+                    <div class="content-card" onclick="showScreen('youtube-screen')">
+                        <div class="content-thumbnail">
+                            <i class="material-icons">videocam</i>
+                        </div>
+                        <div class="content-info">
+                            <h3 class="content-title">Italian Hand Gestures</h3>
+                            <p class="content-meta">8:45 • 2k views</p>
+                        </div>
+                    </div>
+                    <div class="content-card" onclick="showScreen('youtube-screen')">
+                        <div class="content-thumbnail">
+                            <i class="material-icons">videocam</i>
+                        </div>
+                        <div class="content-info">
+                            <h3 class="content-title">Learn Italian Pronunciation</h3>
+                            <p class="content-meta">12:20 • 5k views</p>
+                        </div>
+                    </div>
+                    <div class="content-card" onclick="showScreen('youtube-screen')">
+                        <div class="content-thumbnail">
+                            <i class="material-icons">videocam</i>
+                        </div>
+                        <div class="content-info">
+                            <h3 class="content-title">10 Common Phrases</h3>
+                            <p class="content-meta">7:30 • 3.2k views</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mottos List Screen -->
+        <div id="mottos-screen" class="screen hidden">
+            <div class="header">
+                <h1>Italian Mottos</h1>
+            </div>
+            
+            <div class="search-bar">
+                <i class="material-icons">search</i>
+                <input type="text" placeholder="Search mottos...">
+            </div>
+            
+            <div class="filter-buttons">
+                <button class="filter-btn active">All</button>
+                <button class="filter-btn">Popular</button>
+                <button class="filter-btn">Favorites</button>
+                <button class="filter-btn">Greetings</button>
+                <button class="filter-btn">Food</button>
+                <button class="filter-btn">Travel</button>
+            </div>
+            
+            <div class="mottos-list">
+                <div class="motto-item" onclick="showScreen('motto-detail-screen')">
+                    <div class="motto-item-text">
+                        <p class="motto-item-title">"La vita è bella!"</p>
+                        <p class="motto-item-translation">Life is beautiful!</p>
+                    </div>
+                    <i class="material-icons favorite">favorite</i>
+                </div>
+                
+                <div class="motto-item" onclick="showScreen('motto-detail-screen')">
+                    <div class="motto-item-text">
+                        <p class="motto-item-title">"Dolce far niente"</p>
+                        <p class="motto-item-translation">The sweetness of doing nothing</p>
+                    </div>
+                    <i class="material-icons favorite">favorite_border</i>
+                </div>
+                
+                <div class="motto-item" onclick="showScreen('motto-detail-screen')">
+                    <div class="motto-item-text">
+                        <p class="motto-item-title">"Buon appetito!"</p>
+                        <p class="motto-item-translation">Enjoy your meal!</p>
+                    </div>
+                    <i class="material-icons favorite">favorite_border</i>
+                </div>
+                
+                <div class="motto-item" onclick="showScreen('motto-detail-screen')">
+                    <div class="motto-item-text">
+                        <p class="motto-item-title">"In bocca al lupo"</p>
+                        <p class="motto-item-translation">Good luck (into the wolf's mouth)</p>
+                    </div>
+                    <i class="material-icons favorite">favorite_border</i>
+                </div>
+                
+                <div class="motto-item" onclick="showScreen('motto-detail-screen')">
+                    <div class="motto-item-text">
+                        <p class="motto-item-title">"Chi dorme non piglia pesci"</p>
+                        <p class="motto-item-translation">Who sleeps doesn't catch fish</p>
+                    </div>
+                    <i class="material-icons favorite">favorite_border</i>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Motto Detail Screen -->
+        <div id="motto-detail-screen" class="screen hidden">
+            <div class="header">
+                <button class="back-button" onclick="showScreen('mottos-screen')">
+                    <i class="material-icons">arrow_back</i>
+                </button>
+                <h1>Motto Detail</h1>
+            </div>
+            
+            <div class="card">
+                <h2 class="motto-title">"La vita è bella!"</h2>
+                <p class="motto-translation">Life is beautiful!</p>
+                <button class="favorite" id="detail-favorite-motto">
+                    <i class="material-icons">favorite</i>
+                </button>
+                
+                <div class="motto-explanation">
+                    <h3>Explanation</h3>
+                    <p>This popular Italian phrase celebrates the beauty of life and embodies the Italian philosophy of finding joy in everyday moments. It gained international recognition through Roberto Benigni's 1997 film of the same name.</p>
+                </div>
+                
+                <div class="motto-origin">
+                    <h3>Origin</h3>
+                    <p>This phrase has been a staple in Italian culture for generations, but became particularly famous after the award-winning film "La vita è bella" (1997).</p>
+                </div>
+                
+                <div class="motto-usage">
+                    <h3>Usage</h3>
+                    <p>Used to express appreciation for life's pleasures or to encourage a positive outlook during difficult times.</p>
+                </div>
+            </div>
+            
+            <div class="related-mottos">
+                <h2 class="section-title">Related Mottos</h2>
+                <div class="related-motto-item" onclick="showScreen('motto-detail-screen')">
+                    <p class="motto-item-title">"Dolce far niente"</p>
+                    <p class="motto-item-translation">The sweetness of doing nothing</p>
+                </div>
+                <div class="related-motto-item" onclick="showScreen('motto-detail-screen')">
+                    <p class="motto-item-title">"La dolce vita"</p>
+                    <p class="motto-item-translation">The sweet life</p>
+                </div>
+                <div class="related-motto-item" onclick="showScreen('motto-detail-screen')">
+                    <p class="motto-item-title">"Vivere alla grande"</p>
+                    <p class="motto-item-translation">To live grandly</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- YouTube Screen -->
+        <div id="youtube-screen" class="screen hidden">
+            <div class="header">
+                <h1>Italian Videos</h1>
+            </div>
+            
+            <div class="featured-video">
+                <div class="video-thumbnail">
+                    <i class="material-icons">play_circle_filled</i>
+                </div>
+                <h3 class="video-title">Italian Hand Gestures and Their Meanings</h3>
+                <p class="video-meta">8:45 • 2,152 views • May 15, 2023</p>
+            </div>
+            
+            <h2 class="section-title">Popular Videos</h2>
+            
+            <div class="video-list-item">
+                <div class="video-list-thumbnail">
+                    <i class="material-icons">play_circle_filled</i>
+                </div>
+                <div class="video-list-info">
+                    <h3 class="video-list-title">Learn Italian Pronunciation: Mastering Vowels</h3>
+                    <p class="video-list-meta">12:20 • 5,387 views • April 3, 2023</p>
+                </div>
+            </div>
+            
+            <div class="video-list-item">
+                <div class="video-list-thumbnail">
+                    <i class="material-icons">play_circle_filled</i>
+                </div>
+                <div class="video-list-info">
+                    <h3 class="video-list-title">10 Common Italian Phrases You Need to Know</h3>
+                    <p class="video-list-meta">7:30 • 3,216 views • March 22, 2023</p>
+                </div>
+            </div>
+            
+            <div class="video-list-item">
+                <div class="video-list-thumbnail">
+                    <i class="material-icons">play_circle_filled</i>
+                </div>
+                <div class="video-list-info">
+                    <h3 class="video-list-title">Italian Street Food Tour in Rome</h3>
+                    <p class="video-list-meta">15:45 • 8,954 views • February 10, 2023</p>
+                </div>
+            </div>
+            
+            <div class="video-list-item">
+                <div class="video-list-thumbnail">
+                    <i class="material-icons">play_circle_filled</i>
+                </div>
+                <div class="video-list-info">
+                    <h3 class="video-list-title">Italian Grammar Basics for Beginners</h3>
+                    <p class="video-list-meta">20:12 • 4,521 views • January 5, 2023</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Podcast Screen -->
+        <div id="podcast-screen" class="screen hidden">
+            <div class="header">
+                <h1>Italian Podcasts</h1>
+            </div>
+            
+            <h2 class="section-title">Latest Episodes</h2>
+            
+            <div class="podcast-list-item" onclick="showScreen('podcast-episode-screen')">
+                <div class="podcast-list-thumbnail">
+                    <i class="material-icons">mic</i>
+                </div>
+                <div class="podcast-list-info">
+                    <h3 class="podcast-list-title">Italian Greetings for Every Situation</h3>
+                    <p class="podcast-list-meta">Episode 3 • 12 min • May 20, 2023</p>
+                </div>
+            </div>
+            
+            <div class="podcast-list-item" onclick="showScreen('podcast-episode-screen')">
+                <div class="podcast-list-thumbnail">
+                    <i class="material-icons">mic</i>
+                </div>
+                <div class="podcast-list-info">
+                    <h3 class="podcast-list-title">Italian Coffee Culture</h3>
+                    <p class="podcast-list-meta">Episode 2 • 15 min • May 13, 2023</p>
+                </div>
+            </div>
+            
+            <div class="podcast-list-item" onclick="showScreen('podcast-episode-screen')">
+                <div class="podcast-list-thumbnail">
+                    <i class="material-icons">mic</i>
+                </div>
+                <div class="podcast-list-info">
+                    <h3 class="podcast-list-title">First Conversations in Italian</h3>
+                    <p class="podcast-list-meta">Episode 1 • 10 min • May 6, 2023</p>
+                </div>
+            </div>
+            
+            <h2 class="section-title">Popular Series</h2>
+            
+            <div class="podcast-list-item">
+                <div class="podcast-list-thumbnail">
+                    <i class="material-icons">library_music</i>
+                </div>
+                <div class="podcast-list-info">
+                    <h3 class="podcast-list-title">Italian for Travelers</h3>
+                    <p class="podcast-list-meta">8 episodes • 4.8★</p>
+                </div>
+            </div>
+            
+            <div class="podcast-list-item">
+                <div class="podcast-list-thumbnail">
+                    <i class="material-icons">library_music</i>
+                </div>
+                <div class="podcast-list-info">
+                    <h3 class="podcast-list-title">Cooking Vocabulary</h3>
+                    <p class="podcast-list-meta">6 episodes • 4.6★</p>
+                </div>
+            </div>
+            
+            <div class="podcast-list-item">
+                <div class="podcast-list-thumbnail">
+                    <i class="material-icons">library_music</i>
+                </div>
+                <div class="podcast-list-info">
+                    <h3 class="podcast-list-title">Italian Grammar Made Easy</h3>
+                    <p class="podcast-list-meta">12 episodes • 4.9★</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Podcast Episode Screen -->
+        <div id="podcast-episode-screen" class="screen hidden">
+            <div class="header">
+                <button class="back-button" onclick="showScreen('podcast-screen')">
+                    <i class="material-icons">arrow_back</i>
+                </button>
+                <h1>Episode</h1>
+            </div>
+            
+            <div class="episode-thumbnail">
+                <i class="material-icons">mic</i>
+            </div>
+            
+            <div class="episode-details">
+                <h2 class="episode-title">Italian Greetings for Every Situation</h2>
+                <p class="episode-meta">Episode 3 • 12 min • May 20, 2023</p>
+                
+                <div class="player-controls">
+                    <button class="player-button">
+                        <i class="material-icons">skip_previous</i>
+                    </button>
+                    <button class="player-button play-pause" id="play-button">
+                        <i class="material-icons">play_circle_filled</i>
+                    </button>
+                    <button class="player-button">
+                        <i class="material-icons">skip_next</i>
+                    </button>
+                </div>
+                
+                <div class="progress-bar">
+                    <div class="progress"></div>
+                </div>
+                
+                <div class="time-display">
+                    <span>0:00</span>
+                    <span>12:00</span>
+                </div>
+                
+                <h3>Description</h3>
+                <p class="episode-description">
+                    In this episode, we cover all the essential Italian greetings you need to know. From formal "Buongiorno" to casual "Ciao," you'll learn when to use each greeting and how to pronounce them like a native. We also discuss regional variations and special occasion greetings.
+                </p>
+            </div>
+        </div>
+        
+        <!-- Rewards Screen -->
+        <div id="rewards-screen" class="screen hidden">
+            <div class="header">
+                <h1>Rewards</h1>
+            </div>
+            
+            <div class="points-card">
+                <p class="points-title">Your Points</p>
+                <p class="points-value">750</p>
+            </div>
+            
+            <div class="rewards-section">
+                <h2 class="section-title">Available Rewards</h2>
+                
+                <div class="reward-item" onclick="showScreen('event-detail-screen')">
+                    <div class="reward-info">
+                        <h3 class="reward-title">Italian Cooking Class</h3>
+                        <p class="reward-description">Learn to cook authentic Italian dishes</p>
+                    </div>
+                    <span class="reward-points">500 pts</span>
+                </div>
+                
+                <div class="reward-item" onclick="showScreen('event-detail-screen')">
+                    <div class="reward-info">
+                        <h3 class="reward-title">Italian Movie Night</h3>
+                        <p class="reward-description">Screening of classic Italian cinema</p>
+                    </div>
+                    <span class="reward-points">300 pts</span>
+                </div>
+                
+                <div class="reward-item" onclick="showScreen('event-detail-screen')">
+                    <div class="reward-info">
+                        <h3 class="reward-title">Virtual Tour of Rome</h3>
+                        <p class="reward-description">Guided online tour of famous landmarks</p>
+                    </div>
+                    <span class="reward-points">400 pts</span>
+                </div>
+                
+                <div class="reward-item" onclick="showScreen('event-detail-screen')">
+                    <div class="reward-info">
+                        <h3 class="reward-title">Italian Wine Tasting</h3>
+                        <p class="reward-description">Sample wines from different regions</p>
+                    </div>
+                    <span class="reward-points">600 pts</span>
+                </div>
+            </div>
+            
+            <div class="rewards-section">
+                <h2 class="section-title">Recent Activity</h2>
+                
+                <div class="activity-item">
+                    <p class="activity-date">May 22, 2023</p>
+                    <p class="activity-description">Completed Podcast Episode 3 <span class="activity-points">+50 pts</span></p>
+                </div>
+                
+                <div class="activity-item">
+                    <p class="activity-date">May 20, 2023</p>
+                    <p class="activity-description">Shared content on social media <span class="activity-points">+100 pts</span></p>
+                </div>
+                
+                <div class="activity-item">
+                    <p class="activity-date">May 18, 2023</p>
+                    <p class="activity-description">Completed daily motto quiz <span class="activity-points">+25 pts</span></p>
+                </div>
+                
+                <div class="activity-item">
+                    <p class="activity-date">May 15, 2023</p>
+                    <p class="activity-description">Watched "Italian Hand Gestures" video <span class="activity-points">+50 pts</span></p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Event Detail Screen -->
+        <div id="event-detail-screen" class="screen hidden">
+            <div class="header">
+                <button class="back-button" onclick="showScreen('rewards-screen')">
+                    <i class="material-icons">arrow_back</i>
+                </button>
+                <h1>Event Details</h1>
+            </div>
+            
+            <div class="event-image">
+                <i class="material-icons">restaurant</i>
+            </div>
+            
+            <div class="event-details">
+                <h2 class="event-title">Italian Cooking Class</h2>
+                
+                <div class="event-meta">
+                    <div class="event-meta-item">
+                        <i class="material-icons">calendar_today</i>
+                        <span>June 15, 2023</span>
+                    </div>
+                    <div class="event-meta-item">
+                        <i class="material-icons">access_time</i>
+                        <span>6:00 PM - 8:00 PM</span>
+                    </div>
+                    <div class="event-meta-item">
+                        <i class="material-icons">location_on</i>
+                        <span>Italian Cultural Center</span>
+                    </div>
+                </div>
+                
+                <p class="event-description">
+                    Join Chef Marco for an authentic Italian cooking class where you'll learn to prepare a three-course meal. This hands-on class will teach you traditional techniques and recipes passed down through generations. All ingredients and equipment will be provided. Limited spots available!
+                </p>
+                
+                <button class="redeem-button" id="redeem-button">Redeem for 500 points</button>
+                <p class="redeem-note">You currently have 750 points</p>
+            </div>
+        </div>
+        
+        <!-- Redemption Confirmation -->
+        <div id="redemption-confirmation" class="redemption-confirmation hidden">
+            <div class="confirmation-card">
+                <i class="material-icons confirmation-icon">check_circle</i>
+                <h3 class="confirmation-title">Booking Confirmed!</h3>
+                <p class="confirmation-message">You've successfully redeemed the Italian Cooking Class. Check your email for details.</p>
+                <div class="confirmation-buttons">
+                    <button onclick="showScreen('rewards-screen')">View My Rewards</button>
+                    <button onclick="closeConfirmation()">Close</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Navigation Bar -->
+        <div class="navbar">
+            <a href="#" class="nav-item active" onclick="showScreen('home-screen')">
+                <i class="material-icons">home</i>
+                <span>Home</span>
+            </a>
+            <a href="#" class="nav-item" onclick="showScreen('mottos-screen')">
+                <i class="material-icons">format_quote</i>
+                <span>Mottos</span>
+            </a>
+            <a href="#" class="nav-item" onclick="showScreen('youtube-screen')">
+                <i class="material-icons">videocam</i>
+                <span>Videos</span>
+            </a>
+            <a href="#" class="nav-item" onclick="showScreen('podcast-screen')">
+                <i class="material-icons">mic</i>
+                <span>Podcasts</span>
+            </a>
+            <a href="#" class="nav-item" onclick="showScreen('rewards-screen')">
+                <i class="material-icons">stars</i>
+                <span>Rewards</span>
+            </a>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 

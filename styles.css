@@ -1,0 +1,549 @@
+/* La Dolce Vita Prototype Styles - Medium Fidelity */
+
+:root {
+    --primary-color: #333333;
+    --secondary-color: #666666;
+    --background-color: #f5f5f5;
+    --text-color: #333333;
+    --light-gray: #f5f5f5;
+    --medium-gray: #dddddd;
+    --dark-gray: #666666;
+    --accent-color: #999999;
+    --success-color: #444444;
+    --font-primary: 'Roboto', sans-serif;
+    --font-secondary: 'Roboto', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-secondary);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    padding-bottom: 60px; /* Space for navbar */
+}
+
+/* Typography */
+h1, h2, h3 {
+    font-family: var(--font-primary);
+    margin-bottom: 0.5rem;
+}
+
+h1 {
+    font-size: 1.8rem;
+}
+
+h2 {
+    font-size: 1.5rem;
+}
+
+h3 {
+    font-size: 1.2rem;
+}
+
+/* Screen Layout */
+.screen {
+    padding: 16px;
+    min-height: 100vh;
+    padding-bottom: 80px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Header styles */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--medium-gray);
+}
+
+.header h1 {
+    color: var(--primary-color);
+}
+
+.back-button {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    color: var(--secondary-color);
+}
+
+/* Card styles */
+.card {
+    background-color: white;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.section-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.section-title h2 {
+    color: var(--primary-color);
+}
+
+.view-all {
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+/* Motto styles */
+.motto-card {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.motto-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.motto {
+    font-family: var(--font-primary);
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+    font-style: italic;
+}
+
+.translation {
+    color: var(--text-color);
+    font-size: 1rem;
+    margin-bottom: 12px;
+}
+
+.difficulty {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 12px;
+    background-color: var(--medium-gray);
+    font-size: 0.8rem;
+    color: var(--text-color);
+}
+
+.favorite-btn {
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+.topic-tag {
+    display: inline-block;
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 4px 10px;
+    border-radius: 16px;
+    font-size: 0.8rem;
+    margin-right: 8px;
+    margin-bottom: 8px;
+}
+
+/* Search and filter */
+.search-bar {
+    display: flex;
+    margin-bottom: 16px;
+}
+
+.search-input {
+    flex: 1;
+    padding: 12px 16px;
+    border: 1px solid var(--medium-gray);
+    border-radius: 24px;
+    font-size: 1rem;
+}
+
+.filter-container {
+    display: flex;
+    overflow-x: auto;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+}
+
+.filter-btn {
+    background-color: var(--light-gray);
+    border: 1px solid var(--medium-gray);
+    border-radius: 20px;
+    padding: 6px 16px;
+    margin-right: 8px;
+    white-space: nowrap;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.filter-btn.active {
+    background-color: var(--secondary-color);
+    color: white;
+    border-color: var(--secondary-color);
+}
+
+/* Content cards */
+.content-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.content-card {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.content-thumbnail {
+    width: 100%;
+    height: 100px;
+    background-color: var(--medium-gray);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content-thumbnail i {
+    font-size: 2rem;
+    color: var(--dark-gray);
+}
+
+.content-info {
+    padding: 10px;
+    background-color: white;
+}
+
+.content-title {
+    font-size: 0.9rem;
+    margin-bottom: 4px;
+    font-weight: 500;
+}
+
+.content-meta {
+    font-size: 0.8rem;
+    color: var(--dark-gray);
+}
+
+/* Navbar */
+.navbar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: var(--dark-gray);
+    font-size: 0.7rem;
+    cursor: pointer;
+}
+
+.nav-item i {
+    font-size: 1.5rem;
+    margin-bottom: 2px;
+}
+
+.nav-item.active {
+    color: var(--primary-color);
+}
+
+/* Media player */
+.player-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 0;
+}
+
+.play-button {
+    background: none;
+    border: none;
+    font-size: 3rem;
+    color: var(--primary-color);
+    cursor: pointer;
+}
+
+.player-progress {
+    flex: 1;
+    margin: 0 16px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 4px;
+    background-color: var(--medium-gray);
+    border-radius: 2px;
+    position: relative;
+}
+
+.progress-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 30%;
+    background-color: var(--primary-color);
+    border-radius: 2px;
+}
+
+.timestamps {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    color: var(--dark-gray);
+    margin-top: 4px;
+}
+
+/* Rewards screen */
+.points-display {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 16px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+.points-amount {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.points-label {
+    font-size: 0.9rem;
+}
+
+.activity-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--medium-gray);
+}
+
+.activity-item:last-child {
+    border-bottom: none;
+}
+
+.activity-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: var(--secondary-color);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 12px;
+}
+
+.activity-details {
+    flex: 1;
+}
+
+.activity-title {
+    font-weight: 500;
+    margin-bottom: 2px;
+}
+
+.activity-meta {
+    font-size: 0.8rem;
+    color: var(--dark-gray);
+}
+
+.activity-points {
+    color: var(--success-color);
+    font-weight: bold;
+}
+
+/* Event detail */
+.event-image {
+    width: 100%;
+    height: 180px;
+    border-radius: 8px;
+    background-color: var(--medium-gray);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.event-image i {
+    font-size: 3rem;
+    color: var(--dark-gray);
+}
+
+.detail-section {
+    margin-bottom: 20px;
+}
+
+.detail-section h3 {
+    color: var(--secondary-color);
+    margin-bottom: 8px;
+}
+
+.detail-row {
+    display: flex;
+    margin-bottom: 8px;
+}
+
+.detail-label {
+    width: 100px;
+    font-weight: 500;
+}
+
+.instructor-info {
+    display: flex;
+    align-items: center;
+    margin-top: 8px;
+}
+
+.instructor-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--medium-gray);
+    margin-right: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.redeem-section {
+    background-color: var(--light-gray);
+    padding: 16px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.points-cost {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-bottom: 8px;
+}
+
+.redeem-button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 24px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    width: 100%;
+}
+
+/* Redemption confirmation */
+.confirmation-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+}
+
+.confirmation-popup {
+    background-color: white;
+    border-radius: 8px;
+    padding: 24px;
+    width: 85%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.confirmation-icon {
+    font-size: 4rem;
+    color: var(--success-color);
+    margin-bottom: 16px;
+}
+
+.confirmation-title {
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+}
+
+.confirmation-message {
+    margin-bottom: 24px;
+    color: var(--dark-gray);
+}
+
+.confirmation-buttons {
+    display: flex;
+    flex-direction: column;
+}
+
+.confirmation-buttons button {
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.primary-button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+}
+
+.secondary-button {
+    background-color: transparent;
+    border: 1px solid var(--medium-gray);
+    color: var(--dark-gray);
+}
+
+/* Responsive adjustments */
+@media (min-width: 768px) {
+    .screen {
+        max-width: 768px;
+        margin: 0 auto;
+    }
+    
+    .content-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+} 
