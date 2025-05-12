@@ -3,529 +3,682 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>La Dolce Vita - Medium Fidelity Prototype</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>LA DOLCE VITA - Medium-Fi Prototype</title>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <div class="container">
-        <!-- Home Screen -->
-        <div id="home-screen" class="screen">
-            <div class="header">
-                <h1>La Dolce Vita</h1>
-            </div>
+    <div class="prototype-container">
+        <div class="phone-frame">
+            <div class="notch"></div>
+            <div class="time">19:32</div>
             
-            <div class="motto-card">
-                <h2 class="motto-title">"La vita è bella!"</h2>
-                <p class="motto-translation">Life is beautiful!</p>
-                <button class="favorite" id="favorite-motto">
-                    <i class="material-icons">favorite_border</i>
-                </button>
-            </div>
-            
-            <div class="recent-content">
-                <h2 class="section-title">Recent Podcasts</h2>
-                <div class="content-cards">
-                    <div class="content-card" onclick="showScreen('podcast-episode-screen')">
-                        <div class="content-thumbnail">
-                            <i class="material-icons">mic</i>
-                        </div>
-                        <div class="content-info">
-                            <h3 class="content-title">Italian Greetings</h3>
-                            <p class="content-meta">Episode 3 • 12 min</p>
+            <!-- Home Screen -->
+            <div class="screen active" id="home-screen">
+                <div class="content">
+                    <div class="new-episode">
+                        <div class="new-tag">NEW</div>
+                        <div class="episode-title">NEW EPISODE</div>
+                        <div class="episode-desc">Lucas' Nonna & the Pizza Ritual</div>
+                        <button class="primary-btn" onclick="navigateTo('episode-player')">LISTEN NOW!</button>
+                    </div>
+                    
+                    <div class="motto-card">
+                        <div class="motto-icon">📜</div>
+                        <div class="motto-content">
+                            <div class="motto-title">Italian Saying of the Day</div>
+                            <div class="motto-text">"A chi vola basso..."</div>
+                            <div class="motto-translation">"To those who fly low..."</div>
+                            <button class="secondary-btn" onclick="navigateTo('motto-detail')">Explore More Sayings</button>
                         </div>
                     </div>
-                    <div class="content-card" onclick="showScreen('podcast-episode-screen')">
-                        <div class="content-thumbnail">
-                            <i class="material-icons">mic</i>
-                        </div>
-                        <div class="content-info">
-                            <h3 class="content-title">Coffee Culture</h3>
-                            <p class="content-meta">Episode 2 • 15 min</p>
+
+                    <div class="user-section">
+                        <div class="user-card">
+                            <div class="user-icon">👤</div>
+                            <div class="user-name">Marco</div>
                         </div>
                     </div>
-                    <div class="content-card" onclick="showScreen('podcast-episode-screen')">
-                        <div class="content-thumbnail">
-                            <i class="material-icons">mic</i>
+                    
+                    <!-- YouTube Integration Section - Added for better recognition -->
+                    <div class="youtube-section">
+                        <div class="section-header">
+                            <div class="youtube-icon">📺</div>
+                            <div class="section-title">YouTube Videos</div>
                         </div>
-                        <div class="content-info">
-                            <h3 class="content-title">First Conversations</h3>
-                            <p class="content-meta">Episode 1 • 10 min</p>
+                        <div class="video-preview">
+                            <div class="video-thumbnail">
+                                <div class="thumbnail-gesture">✋</div>
+                                <div class="thumbnail-play-icon">▶️</div>
+                            </div>
+                            <div class="video-preview-info">
+                                <div class="video-title">ITALIAN HAND GESTURES</div>
+                                <div class="video-stats">500K views · 1 day ago</div>
+                            </div>
+                        </div>
+                        <button class="youtube-btn" onclick="navigateTo('youtube-screen')">BROWSE ALL VIDEOS</button>
+                    </div>
+                </div>
+                
+                <div class="navbar">
+                    <div class="nav-item active" onclick="navigateTo('home-screen')">
+                        <div class="nav-icon">🏠</div>
+                        <div class="nav-text">HOME</div>
+                    </div>
+                    <div class="nav-item" onclick="navigateTo('dictionary-screen')">
+                        <div class="nav-icon">📖</div>
+                        <div class="nav-text">DICTIONARY</div>
+                    </div>
+                    <div class="nav-item" onclick="navigateTo('favorites-screen')">
+                        <div class="nav-icon">⭐</div>
+                        <div class="nav-text">FAVORITES</div>
+                    </div>
+                    <div class="nav-item" onclick="navigateTo('rewards-screen')">
+                        <div class="nav-icon">🎁</div>
+                        <div class="nav-text">REWARDS</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Episode Player Screen -->
+            <div class="screen" id="episode-player">
+                <div class="header">
+                    <button class="back-btn" onclick="navigateTo('home-screen')">←</button>
+                    <div class="screen-title">Episode 15</div>
+                </div>
+                
+                <div class="content">
+                    <div class="episode-header">
+                        <div class="episode-title">Lucas' Nonna & the Pizza Ritual</div>
+                        <div class="episode-image"></div>
+                    </div>
+                    
+                    <div class="player-controls">
+                        <div class="progress-bar">
+                            <div class="progress"></div>
+                        </div>
+                        <div class="control-buttons">
+                            <button class="control-btn">⏮</button>
+                            <button class="play-btn">▶</button>
+                            <button class="control-btn">⏭</button>
+                        </div>
+                        <button class="save-btn" onclick="showToast('Episode saved to favorites!')">Save to favorites</button>
+                    </div>
+                </div>
+                
+                <div class="navbar">
+                    <div class="nav-item" onclick="navigateTo('home-screen')">
+                        <div class="nav-icon">🏠</div>
+                        <div class="nav-text">HOME</div>
+                    </div>
+                    <div class="nav-item" onclick="navigateTo('dictionary-screen')">
+                        <div class="nav-icon">📖</div>
+                        <div class="nav-text">DICTIONARY</div>
+                    </div>
+                    <div class="nav-item" onclick="navigateTo('favorites-screen')">
+                        <div class="nav-icon">⭐</div>
+                        <div class="nav-text">FAVORITES</div>
+                    </div>
+                    <div class="nav-item" onclick="navigateTo('rewards-screen')">
+                        <div class="nav-icon">🎁</div>
+                        <div class="nav-text">REWARDS</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Motto Screen -->
+            <div class="screen" id="motto-detail">
+                <div class="header">
+                    <button class="back-btn" onclick="navigateTo('home-screen')">←</button>
+                    <div class="screen-title">Mottos</div>
+                </div>
+                
+                <div class="content">
+                    <div class="search-bar">
+                        <div class="search-icon">🔍</div>
+                        <input type="text" placeholder="Search mottos..." class="search-input" id="motto-search">
+                        <div class="search-clear" onclick="clearSearch('motto-search')">✕</div>
+                    </div>
+                    
+                    <div id="search-status" class="search-status">
+                        <div class="loading-indicator">
+                            <div class="loading-spinner"></div>
+                            <div>Searching...</div>
+                        </div>
+                        <div class="results-count">4 mottos found</div>
+                    </div>
+                    
+                    <div class="motto-list">
+                        <div class="motto-item" onclick="navigateTo('motto-detail-single')">
+                            <div class="motto-text">Chi dorme non piglia pesci</div>
+                            <div class="motto-heart">♡</div>
+                        </div>
+                        <div class="motto-item">
+                            <div class="motto-text">Finché c'è vita c'è speranza</div>
+                            <div class="motto-heart">♡</div>
+                        </div>
+                        <div class="motto-item">
+                            <div class="motto-text">Meglio un uovo oggi...</div>
+                            <div class="motto-heart">♡</div>
+                        </div>
+                        <div class="motto-item">
+                            <div class="motto-text">Ride bene chi ride ultimo</div>
+                            <div class="motto-heart">♡</div>
+                        </div>
+                    </div>
+                    
+                    <div id="no-results" class="no-results" style="display: none;">
+                        <div class="no-results-icon">🔍</div>
+                        <div class="no-results-text">No mottos found for "<span id="search-term"></span>"</div>
+                        <div class="search-suggestions">
+                            <div class="suggestion-title">You might try:</div>
+                            <div class="suggestion-chips">
+                                <div class="suggestion-chip" onclick="applySuggestion('Chi va piano')">Chi va piano</div>
+                                <div class="suggestion-chip" onclick="applySuggestion('Ride bene')">Ride bene</div>
+                                <div class="suggestion-chip" onclick="applySuggestion('Meglio tardi')">Meglio tardi</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="navbar">
+                    <div class="nav-item" onclick="navigateTo('home-screen')">
+                        <div class="nav-icon">🏠</div>
+                        <div class="nav-text">HOME</div>
+                    </div>
+                    <div class="nav-item active" onclick="navigateTo('dictionary-screen')">
+                        <div class="nav-icon">📖</div>
+                        <div class="nav-text">DICTIONARY</div>
+                    </div>
+                    <div class="nav-item" onclick="navigateTo('favorites-screen')">
+                        <div class="nav-icon">⭐</div>
+                        <div class="nav-text">FAVORITES</div>
+                    </div>
+                    <div class="nav-item" onclick="navigateTo('rewards-screen')">
+                        <div class="nav-icon">🎁</div>
+                        <div class="nav-text">REWARDS</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Motto Detail Single -->
+            <div class="screen" id="motto-detail-single">
+                <div class="header">
+                    <button class="back-btn" onclick="navigateTo('motto-detail')">←</button>
+                    <div class="screen-title">Motto Detail</div>
+                </div>
+                
+                <div class="content">
+                    <div class="motto-detail-card">
+                        <div class="motto-text-large">Chi dorme non piglia pesci</div>
+                        <div class="motto-translation">"Who sleeps doesn't catch fish"</div>
+                        <div class="motto-meaning">Meaning: Those who are lazy or inactive miss opportunities.</div>
+                        <div class="motto-region">Region: All of Italy</div>
+                        <div class="motto-audio">
+                            <button class="audio-btn">
+                                <div class="play-icon">▶</div>
+                                <div class="audio-text">Listen to Pronunciation</div>
+                            </button>
+                        </div>
+                        <div class="motto-actions">
+                            <button class="save-btn" onclick="showToast('Motto saved to favorites!')">Save</button>
+                            <button class="share-btn" onclick="showToast('Sharing options opened')">Share</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="navbar">
+                    <div class="nav-item" onclick="navigateTo('home-screen')">
+                        <div class="nav-icon">🏠</div>
+                        <div class="nav-text">HOME</div>
+                    </div>
+                    <div class="nav-item active" onclick="navigateTo('dictionary-screen')">
+                        <div class="nav-icon">📖</div>
+                        <div class="nav-text">DICTIONARY</div>
+                    </div>
+                    <div class="nav-item" onclick="navigateTo('favorites-screen')">
+                        <div class="nav-icon">⭐</div>
+                        <div class="nav-text">FAVORITES</div>
+                    </div>
+                    <div class="nav-item" onclick="navigateTo('rewards-screen')">
+                        <div class="nav-icon">🎁</div>
+                        <div class="nav-text">REWARDS</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Rewards Screen -->
+            <div class="screen" id="rewards-screen">
+                <div class="header">
+                    <div class="screen-title">REWARDS</div>
+                </div>
+                
+                <div class="content">
+                    <div class="points-display">
+                        <div class="points-label">Points</div>
+                        <div class="points-value">720pts</div>
+                    </div>
+                    
+                    <div class="rewards-list">
+                        <div class="reward-item">
+                            <div class="reward-icon">%</div>
+                            <div class="reward-content">
+                                <div class="reward-title">10% OFF AT EATALY</div>
+                                <div class="reward-points">150pts</div>
+                            </div>
+                        </div>
+                        
+                        <div class="reward-item">
+                            <div class="reward-icon">☕</div>
+                            <div class="reward-content">
+                                <div class="reward-title">FREE COFFEE</div>
+                                <div class="reward-points">75pts</div>
+                            </div>
+                        </div>
+                        
+                        <div class="reward-item" onclick="navigateTo('event-detail')">
+                            <div class="reward-icon">🎥</div>
+                            <div class="reward-content">
+                                <div class="reward-title">LIVE Q&A WITH CHEF MARCO</div>
+                                <div class="reward-points">100pts</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="navbar">
+                    <div class="nav-item" onclick="navigateTo('home-screen')">
+                        <div class="nav-icon">🏠</div>
+                        <div class="nav-text">HOME</div>
+                    </div>
+                    <div class="nav-item" onclick="navigateTo('dictionary-screen')">
+                        <div class="nav-icon">📖</div>
+                        <div class="nav-text">DICTIONARY</div>
+                    </div>
+                    <div class="nav-item" onclick="navigateTo('favorites-screen')">
+                        <div class="nav-icon">⭐</div>
+                        <div class="nav-text">FAVORITES</div>
+                    </div>
+                    <div class="nav-item active" onclick="navigateTo('rewards-screen')">
+                        <div class="nav-icon">🎁</div>
+                        <div class="nav-text">REWARDS</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Dictionary Screen -->
+            <div class="screen" id="dictionary-screen">
+                <div class="header">
+                    <div class="screen-title">DICTIONARY</div>
+                </div>
+                
+                <div class="content">
+                    <div class="search-bar">
+                        <div class="search-icon">🔍</div>
+                        <input type="text" placeholder="Search Italian words..." class="search-input">
+                    </div>
+                    
+                    <div class="dictionary-results">
+                        <!-- Results will be populated by JavaScript -->
+                    </div>
+                </div>
+                
+                <div class="navbar">
+                    <div class="nav-item" onclick="navigateTo('home-screen')">
+                        <div class="nav-icon">🏠</div>
+                        <div class="nav-text">HOME</div>
+                    </div>
+                    <div class="nav-item active" onclick="navigateTo('dictionary-screen')">
+                        <div class="nav-icon">📖</div>
+                        <div class="nav-text">DICTIONARY</div>
+                    </div>
+                    <div class="nav-item" onclick="navigateTo('favorites-screen')">
+                        <div class="nav-icon">⭐</div>
+                        <div class="nav-text">FAVORITES</div>
+                    </div>
+                    <div class="nav-item" onclick="navigateTo('rewards-screen')">
+                        <div class="nav-icon">🎁</div>
+                        <div class="nav-text">REWARDS</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Dictionary Entry Screen -->
+            <div class="screen" id="dictionary-entry">
+                <div class="header">
+                    <button class="back-btn" onclick="navigateTo('dictionary-screen')">←</button>
+                    <div class="screen-title">Term Details</div>
+                </div>
+                
+                <div class="content">
+                    <div class="dictionary-entry-card">
+                        <div class="entry-title"><!-- Populated by JavaScript --></div>
+                        <div class="entry-pronunciation">/pronunciation/</div>
+                        
+                        <div class="entry-section">
+                            <div class="section-title">Definition</div>
+                            <div class="entry-definition"><!-- Populated by JavaScript --></div>
+                        </div>
+                        
+                        <div class="entry-section">
+                            <div class="section-title">Example</div>
+                            <div class="entry-example"><!-- Populated by JavaScript --></div>
+                        </div>
+                        
+                        <div class="entry-actions">
+                            <button class="audio-btn">🔊 Listen</button>
+                            <button class="save-btn" onclick="showToast('Term saved to favorites!')">Save</button>
+                            <button class="share-btn" onclick="showToast('Share options opened')">Share</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="navbar">
+                    <div class="nav-item" onclick="navigateTo('home-screen')">
+                        <div class="nav-icon">🏠</div>
+                        <div class="nav-text">HOME</div>
+                    </div>
+                    <div class="nav-item active" onclick="navigateTo('dictionary-screen')">
+                        <div class="nav-icon">📖</div>
+                        <div class="nav-text">DICTIONARY</div>
+                    </div>
+                    <div class="nav-item" onclick="navigateTo('favorites-screen')">
+                        <div class="nav-icon">⭐</div>
+                        <div class="nav-text">FAVORITES</div>
+                    </div>
+                    <div class="nav-item" onclick="navigateTo('rewards-screen')">
+                        <div class="nav-icon">🎁</div>
+                        <div class="nav-text">REWARDS</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Event Detail Screen -->
+            <div class="screen" id="event-detail">
+                <div class="header">
+                    <button class="back-btn" onclick="navigateTo('rewards-screen')">←</button>
+                    <div class="screen-title">Event Detail</div>
+                </div>
+                
+                <div class="content">
+                    <div class="event-header">
+                        <div class="event-title">LIVE Q&A WITH CHEF MARCO</div>
+                    </div>
+                    
+                    <div class="event-info">
+                        <div class="event-description">
+                            Join Chef Marco for a live Q&A session. Learn authentic Italian cooking tips and traditions.
+                        </div>
+                        <div class="event-points">Redeem: 100pts</div>
+                    </div>
+                    
+                    <div class="event-actions">
+                        <button class="primary-btn" onclick="navigateTo('event-confirmation')">REDEEM</button>
+                        <button class="secondary-btn" onclick="navigateTo('rewards-screen')">CANCEL</button>
+                    </div>
+                </div>
+                
+                <div class="navbar">
+                    <div class="nav-item" onclick="navigateTo('home-screen')">
+                        <div class="nav-icon">🏠</div>
+                        <div class="nav-text">HOME</div>
+                    </div>
+                    <div class="nav-item" onclick="navigateTo('dictionary-screen')">
+                        <div class="nav-icon">📖</div>
+                        <div class="nav-text">DICTIONARY</div>
+                    </div>
+                    <div class="nav-item" onclick="navigateTo('favorites-screen')">
+                        <div class="nav-icon">⭐</div>
+                        <div class="nav-text">FAVORITES</div>
+                    </div>
+                    <div class="nav-item active" onclick="navigateTo('rewards-screen')">
+                        <div class="nav-icon">🎁</div>
+                        <div class="nav-text">REWARDS</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Event Confirmation Screen -->
+            <div class="screen" id="event-confirmation">
+                <div class="header">
+                    <button class="back-btn" onclick="navigateTo('event-detail')">←</button>
+                    <div class="screen-title">Confirmation</div>
+                </div>
+                
+                <div class="content confirmation-content">
+                    <div class="confirmation-message">You're in!</div>
+                    <div class="confirmation-details">
+                        <div>LIVE Q&A WITH CHEF MARCO</div>
+                        <div>June 15, 2025 at 7:00 PM</div>
+                    </div>
+                    
+                    <div class="confirmation-actions">
+                        <button class="calendar-btn" onclick="showToast('Added to calendar!')">
+                            <div class="calendar-icon">📅</div>
+                            <div>Add to calendar</div>
+                        </button>
+                        
+                        <button class="primary-btn" onclick="showToast('RSVP Confirmed!')">RSVP</button>
+                        
+                        <button class="share-btn" onclick="showToast('Share options opened')">
+                            <div class="share-icon">↗</div>
+                            <div>Share on social</div>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="navbar">
+                    <div class="nav-item" onclick="navigateTo('home-screen')">
+                        <div class="nav-icon">🏠</div>
+                        <div class="nav-text">HOME</div>
+                    </div>
+                    <div class="nav-item" onclick="navigateTo('dictionary-screen')">
+                        <div class="nav-icon">📖</div>
+                        <div class="nav-text">DICTIONARY</div>
+                    </div>
+                    <div class="nav-item" onclick="navigateTo('favorites-screen')">
+                        <div class="nav-icon">⭐</div>
+                        <div class="nav-text">FAVORITES</div>
+                    </div>
+                    <div class="nav-item active" onclick="navigateTo('rewards-screen')">
+                        <div class="nav-icon">🎁</div>
+                        <div class="nav-text">REWARDS</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- YouTube Integration Screens -->
+            <div class="screen" id="youtube-screen">
+                <div class="header">
+                    <button class="back-btn" onclick="navigateTo('home-screen')">←</button>
+                    <div class="screen-title">LA DOLCE VITA</div>
+                </div>
+                
+                <div class="content">
+                    <div class="channel-header">
+                        <div class="channel-logo">LA DOLCE VITA</div>
+                        <div class="channel-info">
+                            <div class="channel-name">@ladolcevita</div>
+                            <div class="channel-subscribers">2 MILLION SUBS</div>
+                        </div>
+                        <button class="subscribe-btn">SUBSCRIBED</button>
+                    </div>
+                    
+                    <div class="channel-tabs">
+                        <div class="tab active">HOME</div>
+                        <div class="tab">VIDEOS</div>
+                        <div class="tab">SHORTS</div>
+                        <div class="tab">POSTS</div>
+                    </div>
+                    
+                    <div class="latest-tag">LATEST</div>
+                    
+                    <div class="video-list">
+                        <div class="video-item" onclick="navigateTo('video-player')">
+                            <div class="video-thumbnail">
+                                <div class="thumbnail-gesture">✋</div>
+                            </div>
+                            <div class="video-info">
+                                <div class="video-title">ITALIAN HAND GESTURES</div>
+                                <div class="video-stats">500K views · 1 day ago</div>
+                            </div>
+                        </div>
+                        
+                        <div class="video-item">
+                            <div class="video-thumbnail">
+                                <div class="thumbnail-person">👵</div>
+                            </div>
+                            <div class="video-info">
+                                <div class="video-title">NONNA SAYS ep. 12</div>
+                                <div class="video-stats">2M views · 4 days ago</div>
+                            </div>
+                        </div>
+                        
+                        <div class="video-item">
+                            <div class="video-thumbnail">
+                                <div class="thumbnail-food">🍝</div>
+                            </div>
+                            <div class="video-info">
+                                <div class="video-title">CUCINA WITH US!</div>
+                                <div class="video-stats">1.5M views · 1 week ago</div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
             
-            <div class="recent-content">
-                <h2 class="section-title">Recent Videos</h2>
-                <div class="content-cards">
-                    <div class="content-card" onclick="showScreen('youtube-screen')">
-                        <div class="content-thumbnail">
-                            <i class="material-icons">videocam</i>
+            <!-- Video Player Screen -->
+            <div class="screen" id="video-player">
+                <div class="header">
+                    <button class="back-btn" onclick="navigateTo('youtube-screen')">←</button>
+                    <div class="screen-title">Video</div>
+                </div>
+                
+                <div class="content">
+                    <div class="video-player">
+                        <div class="video-frame">
+                            <div class="gesture-image"></div>
                         </div>
-                        <div class="content-info">
-                            <h3 class="content-title">Italian Hand Gestures</h3>
-                            <p class="content-meta">8:45 • 2k views</p>
-                        </div>
-                    </div>
-                    <div class="content-card" onclick="showScreen('youtube-screen')">
-                        <div class="content-thumbnail">
-                            <i class="material-icons">videocam</i>
-                        </div>
-                        <div class="content-info">
-                            <h3 class="content-title">Learn Italian Pronunciation</h3>
-                            <p class="content-meta">12:20 • 5k views</p>
+                        <div class="video-progress">
+                            <div class="progress-bar">
+                                <div class="progress"></div>
+                            </div>
                         </div>
                     </div>
-                    <div class="content-card" onclick="showScreen('youtube-screen')">
-                        <div class="content-thumbnail">
-                            <i class="material-icons">videocam</i>
+                    
+                    <div class="video-details">
+                        <div class="video-title">ITALIAN HAND GESTURES</div>
+                        <div class="video-stats">500K views · 1 day ago</div>
+                        <div class="channel-info-small">
+                            <div class="channel-icon">LA DOLCE VITA</div>
+                            <div class="video-duration">2H</div>
                         </div>
-                        <div class="content-info">
-                            <h3 class="content-title">10 Common Phrases</h3>
-                            <p class="content-meta">7:30 • 3.2k views</p>
+                        
+                        <div class="video-actions">
+                            <button class="like-btn">👍 LIKE</button>
+                            <button class="share-btn" onclick="showActionFeedback(this, 'Share options opened')">↗ SHARE</button>
+                            <button class="save-btn" onclick="saveToFavorites(this, 'Video saved to favorites!')">💾 SAVE</button>
+                        </div>
+                        
+                        <div class="comments-section">
+                            <div class="comments-count">COMMENTS 252</div>
+                            <div class="comment">
+                                <div class="comment-text">Amazing video!!! 👏</div>
+                            </div>
+                        </div>
+                        
+                        <div class="video-caption">
+                            <div class="caption-title">LASAGNE</div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        
-        <!-- Mottos List Screen -->
-        <div id="mottos-screen" class="screen hidden">
-            <div class="header">
-                <h1>Italian Mottos</h1>
-            </div>
             
-            <div class="search-bar">
-                <i class="material-icons">search</i>
-                <input type="text" placeholder="Search mottos...">
-            </div>
-            
-            <div class="filter-buttons">
-                <button class="filter-btn active">All</button>
-                <button class="filter-btn">Popular</button>
-                <button class="filter-btn">Favorites</button>
-                <button class="filter-btn">Greetings</button>
-                <button class="filter-btn">Food</button>
-                <button class="filter-btn">Travel</button>
-            </div>
-            
-            <div class="mottos-list">
-                <div class="motto-item" onclick="showScreen('motto-detail-screen')">
-                    <div class="motto-item-text">
-                        <p class="motto-item-title">"La vita è bella!"</p>
-                        <p class="motto-item-translation">Life is beautiful!</p>
+            <!-- Favorites Screen -->
+            <div class="screen" id="favorites-screen">
+                <div class="header">
+                    <div class="screen-title">MY FAVORITES</div>
+                </div>
+                
+                <div class="content">
+                    <div class="favorites-tabs">
+                        <div class="favorites-tab active" onclick="showFavoritesTab('videos')">VIDEOS</div>
+                        <div class="favorites-tab" onclick="showFavoritesTab('mottos')">MOTTOS</div>
+                        <div class="favorites-tab" onclick="showFavoritesTab('terms')">TERMS</div>
                     </div>
-                    <i class="material-icons favorite">favorite</i>
-                </div>
-                
-                <div class="motto-item" onclick="showScreen('motto-detail-screen')">
-                    <div class="motto-item-text">
-                        <p class="motto-item-title">"Dolce far niente"</p>
-                        <p class="motto-item-translation">The sweetness of doing nothing</p>
+                    
+                    <!-- Favorites Content Section -->
+                    <div class="favorites-content" id="favorites-videos">
+                        <div class="favorites-item" onclick="navigateTo('video-player')">
+                            <div class="favorites-thumbnail">
+                                <div class="thumbnail-gesture">✋</div>
+                                <div class="thumbnail-play-icon">▶️</div>
+                            </div>
+                            <div class="favorites-info">
+                                <div class="favorites-title">ITALIAN HAND GESTURES</div>
+                                <div class="favorites-meta">Saved on Jun 5, 2025</div>
+                            </div>
+                            <div class="favorites-remove" onclick="removeFavorite(event, 'video-1')">✕</div>
+                        </div>
+                        
+                        <div class="empty-favorites" style="display: none;">
+                            <div class="empty-icon">📂</div>
+                            <div class="empty-text">No saved videos yet</div>
+                            <button class="secondary-btn" onclick="navigateTo('youtube-screen')">Browse Videos</button>
+                        </div>
                     </div>
-                    <i class="material-icons favorite">favorite_border</i>
-                </div>
-                
-                <div class="motto-item" onclick="showScreen('motto-detail-screen')">
-                    <div class="motto-item-text">
-                        <p class="motto-item-title">"Buon appetito!"</p>
-                        <p class="motto-item-translation">Enjoy your meal!</p>
+                    
+                    <div class="favorites-content" id="favorites-mottos" style="display: none;">
+                        <div class="favorites-item" onclick="navigateTo('motto-detail-single')">
+                            <div class="favorites-info">
+                                <div class="favorites-title">Chi dorme non piglia pesci</div>
+                                <div class="favorites-meta">Saved on Jun 2, 2025</div>
+                            </div>
+                            <div class="favorites-remove" onclick="removeFavorite(event, 'motto-1')">✕</div>
+                        </div>
+                        
+                        <div class="empty-favorites" style="display: none;">
+                            <div class="empty-icon">📂</div>
+                            <div class="empty-text">No saved mottos yet</div>
+                            <button class="secondary-btn" onclick="navigateTo('motto-detail')">Browse Mottos</button>
+                        </div>
                     </div>
-                    <i class="material-icons favorite">favorite_border</i>
-                </div>
-                
-                <div class="motto-item" onclick="showScreen('motto-detail-screen')">
-                    <div class="motto-item-text">
-                        <p class="motto-item-title">"In bocca al lupo"</p>
-                        <p class="motto-item-translation">Good luck (into the wolf's mouth)</p>
-                    </div>
-                    <i class="material-icons favorite">favorite_border</i>
-                </div>
-                
-                <div class="motto-item" onclick="showScreen('motto-detail-screen')">
-                    <div class="motto-item-text">
-                        <p class="motto-item-title">"Chi dorme non piglia pesci"</p>
-                        <p class="motto-item-translation">Who sleeps doesn't catch fish</p>
-                    </div>
-                    <i class="material-icons favorite">favorite_border</i>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Motto Detail Screen -->
-        <div id="motto-detail-screen" class="screen hidden">
-            <div class="header">
-                <button class="back-button" onclick="showScreen('mottos-screen')">
-                    <i class="material-icons">arrow_back</i>
-                </button>
-                <h1>Motto Detail</h1>
-            </div>
-            
-            <div class="card">
-                <h2 class="motto-title">"La vita è bella!"</h2>
-                <p class="motto-translation">Life is beautiful!</p>
-                <button class="favorite" id="detail-favorite-motto">
-                    <i class="material-icons">favorite</i>
-                </button>
-                
-                <div class="motto-explanation">
-                    <h3>Explanation</h3>
-                    <p>This popular Italian phrase celebrates the beauty of life and embodies the Italian philosophy of finding joy in everyday moments. It gained international recognition through Roberto Benigni's 1997 film of the same name.</p>
-                </div>
-                
-                <div class="motto-origin">
-                    <h3>Origin</h3>
-                    <p>This phrase has been a staple in Italian culture for generations, but became particularly famous after the award-winning film "La vita è bella" (1997).</p>
-                </div>
-                
-                <div class="motto-usage">
-                    <h3>Usage</h3>
-                    <p>Used to express appreciation for life's pleasures or to encourage a positive outlook during difficult times.</p>
-                </div>
-            </div>
-            
-            <div class="related-mottos">
-                <h2 class="section-title">Related Mottos</h2>
-                <div class="related-motto-item" onclick="showScreen('motto-detail-screen')">
-                    <p class="motto-item-title">"Dolce far niente"</p>
-                    <p class="motto-item-translation">The sweetness of doing nothing</p>
-                </div>
-                <div class="related-motto-item" onclick="showScreen('motto-detail-screen')">
-                    <p class="motto-item-title">"La dolce vita"</p>
-                    <p class="motto-item-translation">The sweet life</p>
-                </div>
-                <div class="related-motto-item" onclick="showScreen('motto-detail-screen')">
-                    <p class="motto-item-title">"Vivere alla grande"</p>
-                    <p class="motto-item-translation">To live grandly</p>
-                </div>
-            </div>
-        </div>
-        
-        <!-- YouTube Screen -->
-        <div id="youtube-screen" class="screen hidden">
-            <div class="header">
-                <h1>Italian Videos</h1>
-            </div>
-            
-            <div class="featured-video">
-                <div class="video-thumbnail">
-                    <i class="material-icons">play_circle_filled</i>
-                </div>
-                <h3 class="video-title">Italian Hand Gestures and Their Meanings</h3>
-                <p class="video-meta">8:45 • 2,152 views • May 15, 2023</p>
-            </div>
-            
-            <h2 class="section-title">Popular Videos</h2>
-            
-            <div class="video-list-item">
-                <div class="video-list-thumbnail">
-                    <i class="material-icons">play_circle_filled</i>
-                </div>
-                <div class="video-list-info">
-                    <h3 class="video-list-title">Learn Italian Pronunciation: Mastering Vowels</h3>
-                    <p class="video-list-meta">12:20 • 5,387 views • April 3, 2023</p>
-                </div>
-            </div>
-            
-            <div class="video-list-item">
-                <div class="video-list-thumbnail">
-                    <i class="material-icons">play_circle_filled</i>
-                </div>
-                <div class="video-list-info">
-                    <h3 class="video-list-title">10 Common Italian Phrases You Need to Know</h3>
-                    <p class="video-list-meta">7:30 • 3,216 views • March 22, 2023</p>
-                </div>
-            </div>
-            
-            <div class="video-list-item">
-                <div class="video-list-thumbnail">
-                    <i class="material-icons">play_circle_filled</i>
-                </div>
-                <div class="video-list-info">
-                    <h3 class="video-list-title">Italian Street Food Tour in Rome</h3>
-                    <p class="video-list-meta">15:45 • 8,954 views • February 10, 2023</p>
-                </div>
-            </div>
-            
-            <div class="video-list-item">
-                <div class="video-list-thumbnail">
-                    <i class="material-icons">play_circle_filled</i>
-                </div>
-                <div class="video-list-info">
-                    <h3 class="video-list-title">Italian Grammar Basics for Beginners</h3>
-                    <p class="video-list-meta">20:12 • 4,521 views • January 5, 2023</p>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Podcast Screen -->
-        <div id="podcast-screen" class="screen hidden">
-            <div class="header">
-                <h1>Italian Podcasts</h1>
-            </div>
-            
-            <h2 class="section-title">Latest Episodes</h2>
-            
-            <div class="podcast-list-item" onclick="showScreen('podcast-episode-screen')">
-                <div class="podcast-list-thumbnail">
-                    <i class="material-icons">mic</i>
-                </div>
-                <div class="podcast-list-info">
-                    <h3 class="podcast-list-title">Italian Greetings for Every Situation</h3>
-                    <p class="podcast-list-meta">Episode 3 • 12 min • May 20, 2023</p>
-                </div>
-            </div>
-            
-            <div class="podcast-list-item" onclick="showScreen('podcast-episode-screen')">
-                <div class="podcast-list-thumbnail">
-                    <i class="material-icons">mic</i>
-                </div>
-                <div class="podcast-list-info">
-                    <h3 class="podcast-list-title">Italian Coffee Culture</h3>
-                    <p class="podcast-list-meta">Episode 2 • 15 min • May 13, 2023</p>
-                </div>
-            </div>
-            
-            <div class="podcast-list-item" onclick="showScreen('podcast-episode-screen')">
-                <div class="podcast-list-thumbnail">
-                    <i class="material-icons">mic</i>
-                </div>
-                <div class="podcast-list-info">
-                    <h3 class="podcast-list-title">First Conversations in Italian</h3>
-                    <p class="podcast-list-meta">Episode 1 • 10 min • May 6, 2023</p>
-                </div>
-            </div>
-            
-            <h2 class="section-title">Popular Series</h2>
-            
-            <div class="podcast-list-item">
-                <div class="podcast-list-thumbnail">
-                    <i class="material-icons">library_music</i>
-                </div>
-                <div class="podcast-list-info">
-                    <h3 class="podcast-list-title">Italian for Travelers</h3>
-                    <p class="podcast-list-meta">8 episodes • 4.8★</p>
-                </div>
-            </div>
-            
-            <div class="podcast-list-item">
-                <div class="podcast-list-thumbnail">
-                    <i class="material-icons">library_music</i>
-                </div>
-                <div class="podcast-list-info">
-                    <h3 class="podcast-list-title">Cooking Vocabulary</h3>
-                    <p class="podcast-list-meta">6 episodes • 4.6★</p>
-                </div>
-            </div>
-            
-            <div class="podcast-list-item">
-                <div class="podcast-list-thumbnail">
-                    <i class="material-icons">library_music</i>
-                </div>
-                <div class="podcast-list-info">
-                    <h3 class="podcast-list-title">Italian Grammar Made Easy</h3>
-                    <p class="podcast-list-meta">12 episodes • 4.9★</p>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Podcast Episode Screen -->
-        <div id="podcast-episode-screen" class="screen hidden">
-            <div class="header">
-                <button class="back-button" onclick="showScreen('podcast-screen')">
-                    <i class="material-icons">arrow_back</i>
-                </button>
-                <h1>Episode</h1>
-            </div>
-            
-            <div class="episode-thumbnail">
-                <i class="material-icons">mic</i>
-            </div>
-            
-            <div class="episode-details">
-                <h2 class="episode-title">Italian Greetings for Every Situation</h2>
-                <p class="episode-meta">Episode 3 • 12 min • May 20, 2023</p>
-                
-                <div class="player-controls">
-                    <button class="player-button">
-                        <i class="material-icons">skip_previous</i>
-                    </button>
-                    <button class="player-button play-pause" id="play-button">
-                        <i class="material-icons">play_circle_filled</i>
-                    </button>
-                    <button class="player-button">
-                        <i class="material-icons">skip_next</i>
-                    </button>
-                </div>
-                
-                <div class="progress-bar">
-                    <div class="progress"></div>
-                </div>
-                
-                <div class="time-display">
-                    <span>0:00</span>
-                    <span>12:00</span>
-                </div>
-                
-                <h3>Description</h3>
-                <p class="episode-description">
-                    In this episode, we cover all the essential Italian greetings you need to know. From formal "Buongiorno" to casual "Ciao," you'll learn when to use each greeting and how to pronounce them like a native. We also discuss regional variations and special occasion greetings.
-                </p>
-            </div>
-        </div>
-        
-        <!-- Rewards Screen -->
-        <div id="rewards-screen" class="screen hidden">
-            <div class="header">
-                <h1>Rewards</h1>
-            </div>
-            
-            <div class="points-card">
-                <p class="points-title">Your Points</p>
-                <p class="points-value">750</p>
-            </div>
-            
-            <div class="rewards-section">
-                <h2 class="section-title">Available Rewards</h2>
-                
-                <div class="reward-item" onclick="showScreen('event-detail-screen')">
-                    <div class="reward-info">
-                        <h3 class="reward-title">Italian Cooking Class</h3>
-                        <p class="reward-description">Learn to cook authentic Italian dishes</p>
-                    </div>
-                    <span class="reward-points">500 pts</span>
-                </div>
-                
-                <div class="reward-item" onclick="showScreen('event-detail-screen')">
-                    <div class="reward-info">
-                        <h3 class="reward-title">Italian Movie Night</h3>
-                        <p class="reward-description">Screening of classic Italian cinema</p>
-                    </div>
-                    <span class="reward-points">300 pts</span>
-                </div>
-                
-                <div class="reward-item" onclick="showScreen('event-detail-screen')">
-                    <div class="reward-info">
-                        <h3 class="reward-title">Virtual Tour of Rome</h3>
-                        <p class="reward-description">Guided online tour of famous landmarks</p>
-                    </div>
-                    <span class="reward-points">400 pts</span>
-                </div>
-                
-                <div class="reward-item" onclick="showScreen('event-detail-screen')">
-                    <div class="reward-info">
-                        <h3 class="reward-title">Italian Wine Tasting</h3>
-                        <p class="reward-description">Sample wines from different regions</p>
-                    </div>
-                    <span class="reward-points">600 pts</span>
-                </div>
-            </div>
-            
-            <div class="rewards-section">
-                <h2 class="section-title">Recent Activity</h2>
-                
-                <div class="activity-item">
-                    <p class="activity-date">May 22, 2023</p>
-                    <p class="activity-description">Completed Podcast Episode 3 <span class="activity-points">+50 pts</span></p>
-                </div>
-                
-                <div class="activity-item">
-                    <p class="activity-date">May 20, 2023</p>
-                    <p class="activity-description">Shared content on social media <span class="activity-points">+100 pts</span></p>
-                </div>
-                
-                <div class="activity-item">
-                    <p class="activity-date">May 18, 2023</p>
-                    <p class="activity-description">Completed daily motto quiz <span class="activity-points">+25 pts</span></p>
-                </div>
-                
-                <div class="activity-item">
-                    <p class="activity-date">May 15, 2023</p>
-                    <p class="activity-description">Watched "Italian Hand Gestures" video <span class="activity-points">+50 pts</span></p>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Event Detail Screen -->
-        <div id="event-detail-screen" class="screen hidden">
-            <div class="header">
-                <button class="back-button" onclick="showScreen('rewards-screen')">
-                    <i class="material-icons">arrow_back</i>
-                </button>
-                <h1>Event Details</h1>
-            </div>
-            
-            <div class="event-image">
-                <i class="material-icons">restaurant</i>
-            </div>
-            
-            <div class="event-details">
-                <h2 class="event-title">Italian Cooking Class</h2>
-                
-                <div class="event-meta">
-                    <div class="event-meta-item">
-                        <i class="material-icons">calendar_today</i>
-                        <span>June 15, 2023</span>
-                    </div>
-                    <div class="event-meta-item">
-                        <i class="material-icons">access_time</i>
-                        <span>6:00 PM - 8:00 PM</span>
-                    </div>
-                    <div class="event-meta-item">
-                        <i class="material-icons">location_on</i>
-                        <span>Italian Cultural Center</span>
+                    
+                    <div class="favorites-content" id="favorites-terms" style="display: none;">
+                        <div class="empty-favorites">
+                            <div class="empty-icon">📂</div>
+                            <div class="empty-text">No saved terms yet</div>
+                            <button class="secondary-btn" onclick="navigateTo('dictionary-screen')">Browse Dictionary</button>
+                        </div>
                     </div>
                 </div>
                 
-                <p class="event-description">
-                    Join Chef Marco for an authentic Italian cooking class where you'll learn to prepare a three-course meal. This hands-on class will teach you traditional techniques and recipes passed down through generations. All ingredients and equipment will be provided. Limited spots available!
-                </p>
-                
-                <button class="redeem-button" id="redeem-button">Redeem for 500 points</button>
-                <p class="redeem-note">You currently have 750 points</p>
-            </div>
-        </div>
-        
-        <!-- Redemption Confirmation -->
-        <div id="redemption-confirmation" class="redemption-confirmation hidden">
-            <div class="confirmation-card">
-                <i class="material-icons confirmation-icon">check_circle</i>
-                <h3 class="confirmation-title">Booking Confirmed!</h3>
-                <p class="confirmation-message">You've successfully redeemed the Italian Cooking Class. Check your email for details.</p>
-                <div class="confirmation-buttons">
-                    <button onclick="showScreen('rewards-screen')">View My Rewards</button>
-                    <button onclick="closeConfirmation()">Close</button>
+                <div class="navbar">
+                    <div class="nav-item" onclick="navigateTo('home-screen')">
+                        <div class="nav-icon">🏠</div>
+                        <div class="nav-text">HOME</div>
+                    </div>
+                    <div class="nav-item" onclick="navigateTo('dictionary-screen')">
+                        <div class="nav-icon">📖</div>
+                        <div class="nav-text">DICTIONARY</div>
+                    </div>
+                    <div class="nav-item active" onclick="navigateTo('favorites-screen')">
+                        <div class="nav-icon">⭐</div>
+                        <div class="nav-text">FAVORITES</div>
+                    </div>
+                    <div class="nav-item" onclick="navigateTo('rewards-screen')">
+                        <div class="nav-icon">🎁</div>
+                        <div class="nav-text">REWARDS</div>
+                    </div>
                 </div>
             </div>
-        </div>
-        
-        <!-- Navigation Bar -->
-        <div class="navbar">
-            <a href="#" class="nav-item active" onclick="showScreen('home-screen')">
-                <i class="material-icons">home</i>
-                <span>Home</span>
-            </a>
-            <a href="#" class="nav-item" onclick="showScreen('mottos-screen')">
-                <i class="material-icons">format_quote</i>
-                <span>Mottos</span>
-            </a>
-            <a href="#" class="nav-item" onclick="showScreen('youtube-screen')">
-                <i class="material-icons">videocam</i>
-                <span>Videos</span>
-            </a>
-            <a href="#" class="nav-item" onclick="showScreen('podcast-screen')">
-                <i class="material-icons">mic</i>
-                <span>Podcasts</span>
-            </a>
-            <a href="#" class="nav-item" onclick="showScreen('rewards-screen')">
-                <i class="material-icons">stars</i>
-                <span>Rewards</span>
-            </a>
+            
+            <!-- Toast Message -->
+            <div class="toast-message" id="toast">
+                <div class="toast-text"></div>
+            </div>
         </div>
     </div>
-
-    <script src="script.js"></script>
+    
+    <script src="js/script.js"></script>
 </body>
 </html> 
